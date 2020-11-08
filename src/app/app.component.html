@@ -1,7 +1,4 @@
+<met-header></met-header>
 <div class="container">
-  <div class="row">
-    <ul class="list-group col-5 mx-auto">
-      <met-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></met-recipe-item>
-    </ul>
-  </div>
+  <met-recipe-list [recipes]="recipes"></met-recipe-list>
 </div>
