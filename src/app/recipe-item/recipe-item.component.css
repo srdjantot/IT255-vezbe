@@ -20,3 +20,11 @@ h4 {
 p {
   margin-bottom: 0px;
 }
+
+span {
+  margin-right: 5px;
+}
+
+span:last-of-type {
+  margin-right: 0px;
+}

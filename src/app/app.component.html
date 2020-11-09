@@ -1,4 +1,11 @@
 <met-header></met-header>
 <div class="container">
-  <met-recipe-list [recipes]="recipes"></met-recipe-list>
+  <div class="row">
+    <div class="col-5">
+      <met-recipe-list [recipes]="recipes" (newRecipe)="editing = true"></met-recipe-list>
+    </div>
+    <div class="col-7">
+      <met-recipe-edit *ngIf="editing" (result)="onResult($event)"></met-recipe-edit>
+    </div>
+  </div>
 </div>

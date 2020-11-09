@@ -6,4 +6,7 @@
         <h4>{{recipe.name}}</h4>
         <p>{{recipe.description}}</p>
     </div>
+    <div class="">
+        <span *ngFor="let ingredient of recipe.ingredients" class="badge badge-info">{{ingredient.name}}</span>
+    </div>
 </li>

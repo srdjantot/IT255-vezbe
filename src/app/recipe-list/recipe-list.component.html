@@ -1,5 +1,9 @@
 <div class="row">
-    <ul class="list-group col-5 mx-auto">
+    <button class="btn btn-success" (click)="onNewRecipe()">New recipe</button>
+</div>
+<hr>
+<div class="row">
+    <ul class="list-group">
         <met-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></met-recipe-item>
     </ul>
 </div>
