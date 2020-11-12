@@ -1,0 +1,3 @@
+<button *ngIf="authService.isAuthenticated" class="btn btn-outline-warning ml-3" (click)="logout()">Logout</button>
+<button *ngIf="!authService.isAuthenticated" class="btn btn-outline-success ml-3" routerLink="/login">Login</button>
+<button *ngIf="!authService.isAuthenticated" class="btn btn-outline-info ml-1" routerLink="/register">Register</button>

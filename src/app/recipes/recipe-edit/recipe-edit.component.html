@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12">
-        <h3>New recipe</h3>
+        <h3>{{(recipe) ? 'Edit recipe' : 'New recipe'}}</h3>
     </div>
     <div class="col-12">
         <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <img #image class="img-fluid img-thumbnail" src="{{editForm.value.imagePath}}" alt="Recipe image"
+                <img #image class="img-fluid img-thumbnail" [src]="editForm.value.imagePath" alt="Recipe image"
                     (load)="image.hidden = false" (error)="image.hidden = true">
             </div>
             <div class="form-group">
@@ -34,7 +34,7 @@
                     [class.is-invalid]="editForm.controls.description.touched && editForm.controls.description.invalid"></textarea>
                 <div *ngIf="editForm.controls.description.touched && editForm.controls.description.invalid"
                     class="invalid-feedback">
-                    Recipe description must be at least 50 characters long.
+                    Recipe description must be at least 10 characters long.
                 </div>
             </div>
             <div formArrayName="ingredients">
@@ -68,6 +68,8 @@
             <div class="float-right">
                 <button type="submit" class="btn btn-primary mx-1" [disabled]="editForm.invalid">Save</button>
                 <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                <button *ngIf="recipe" type="button" class="btn btn-outline-danger ml-3"
+                    (click)="onDelete()">Delete</button>
             </div>
             <div class="float-left">
                 <button type="button" class="btn btn-success" (click)="onNewIngredient($event)">Add ingredient</button>

@@ -1,0 +1,3 @@
+<span *ngIf="inProgress">{{status}}</span>
+<button class="btn btn-outline-primary ml-1" (click)="loadRecipes()" [disabled]="inProgress">Load</button>
+<button *ngIf="authService.isAuthenticated" class="btn btn-outline-primary ml-1" (click)="saveRecipes()" [disabled]="inProgress">Save</button>

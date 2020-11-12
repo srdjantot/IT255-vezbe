@@ -1,34 +1,48 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { APP_TITLE, API_URL } from './app.config';
+import { API_URL, APP_TITLE } from './app.config';
+import { DataStorageComponent } from './header/data-storage/data-storage.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
-import { RecipeItemComponent } from './recipe-item/recipe-item.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
-import { DataStorageComponent } from './data-storage/data-storage.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipeItemTemplateComponent } from './recipes/recipe-item-template/recipe-item-template.component';
+import { RecipeItemComponent } from './recipes/recipe-item/recipe-item.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { AuthorizationComponent } from './header/authorization/authorization.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecipeItemComponent,
     HeaderComponent,
+    DataStorageComponent,
+    RecipesComponent,
+    RecipeItemComponent,
     RecipeListComponent,
     RecipeEditComponent,
-    DataStorageComponent
+    RecipeItemTemplateComponent,
+    RecipeDetailComponent,
+    AuthorizationComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
-    { provide: APP_TITLE, useValue: "Recipe book" },
-    { provide: API_URL, useValue: "https://gilded-befitting-scene.glitch.me" },
+    { provide: APP_TITLE, useValue: 'Recipe book' },
+    { provide: API_URL, useValue: 'https://gilded-befitting-scene.glitch.me' },
   ],
   bootstrap: [AppComponent]
 })

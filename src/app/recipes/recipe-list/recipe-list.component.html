@@ -1,5 +1,5 @@
 <div class="row">
-    <button class="btn btn-success" (click)="onNewRecipe()">New recipe</button>
+    <button class="btn btn-success" routerLink="new" type="button" [disabled]="!authService.isAuthenticated">New recipe</button>
 </div>
 <hr>
 <div class="row">
