@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Ingredient } from '../models/ingredient';
+import { Store } from '@ngrx/store';
 import { Recipe } from '../models/recipe';
+import * as RecipeActions from '../store/recipe.actions';
+import { RecipeReducers } from '../store/recipe.reducer';
 
 @Injectable({
   providedIn: 'root'
@@ -8,25 +10,27 @@ import { Recipe } from '../models/recipe';
 export class RecipeService {
   #recipes: Recipe[] = [];
 
-  constructor() { }
+  constructor(private store: Store<RecipeReducers>) {
+    this.store.select(state => state.recipes.recipes).subscribe(recipes => this.#recipes = recipes);
+  }
 
   get recipes(): Recipe[] {
     return this.#recipes;
   }
 
-  set recipes(value: Recipe[]) {
-    this.#recipes = value || [];
+  set recipes(recipes: Recipe[]) {
+    this.store.dispatch(RecipeActions.set({ recipes }));
   }
 
   add(recipe: Recipe): void {
-    this.recipes = this.recipes.concat(recipe);
+    this.store.dispatch(RecipeActions.add({ recipe }));
   }
 
   replace(old: Recipe, created: Recipe): void {
-    this.recipes = this.recipes.map(recipe => recipe === old ? created : recipe);
+    this.store.dispatch(RecipeActions.replace({ old, created }));
   }
 
   remove(recipe: Recipe): void {
-    this.recipes = this.recipes.filter(item => item !== recipe);
+    this.store.dispatch(RecipeActions.remove({ recipe }));
   }
 }
