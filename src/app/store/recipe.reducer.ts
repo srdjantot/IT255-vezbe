@@ -1,32 +1,47 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import { Ingredient } from '../models/ingredient';
 import { Recipe } from '../models/recipe';
 import * as RecipeActions from './recipe.actions';
 
 export interface State {
     recipes: Recipe[];
+    ingredients: Ingredient[];
 }
 
 const initialState: State = {
-    recipes: []
+    recipes: [],
+    ingredients: []
 };
 
 const reducer = createReducer(
     initialState,
-    on(RecipeActions.add, (state, { recipe }) => ({
+    on(RecipeActions.addRecipe, (state, { recipe }) => ({
         ...state,
         recipes: state.recipes.concat(recipe)
     })),
-    on(RecipeActions.replace, (state, { old, created }) => ({
+    on(RecipeActions.replaceRecipe, (state, { old, created }) => ({
         ...state,
         recipes: state.recipes.map(recipe => recipe === old ? created : recipe)
     })),
-    on(RecipeActions.remove, (state, { recipe }) => ({
+    on(RecipeActions.removeRecipe, (state, { recipe }) => ({
         ...state,
         recipes: state.recipes.filter(item => item !== recipe)
     })),
-    on(RecipeActions.set, (state, { recipes }) => ({
+    on(RecipeActions.setRecipes, (state, { recipes }) => ({
         ...state,
         recipes: recipes || []
+    })),
+    on(RecipeActions.addIngredient, (state, { ingredient }) => ({
+        ...state,
+        ingredients: state.ingredients.concat(ingredient)
+    })),
+    on(RecipeActions.removeIngredient, (state, { ingredient }) => ({
+        ...state,
+        ingredients: state.ingredients.filter(item => item !== ingredient)
+    })),
+    on(RecipeActions.setIngredients, (state, { ingredients }) => ({
+        ...state,
+        ingredients: ingredients || []
     }))
 );
 

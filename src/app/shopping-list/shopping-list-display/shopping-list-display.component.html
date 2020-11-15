@@ -1,0 +1,10 @@
+<li class="list-group-item d-flex">
+    <div>
+        <ng-content select=".name"></ng-content>
+        <span class="badge badge-primary badge-pill ml-2">
+            <ng-content></ng-content>
+        </span>
+    </div>
+
+    <button type="button" class="btn btn-outline-danger ml-auto" (click)="onRemoveIngredient($event)">🗑</button>
+</li>

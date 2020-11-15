@@ -19,18 +19,18 @@ export class RecipeService {
   }
 
   set recipes(recipes: Recipe[]) {
-    this.store.dispatch(RecipeActions.set({ recipes }));
+    this.store.dispatch(RecipeActions.setRecipes({ recipes }));
   }
 
   add(recipe: Recipe): void {
-    this.store.dispatch(RecipeActions.add({ recipe }));
+    this.store.dispatch(RecipeActions.addRecipe({ recipe }));
   }
 
   replace(old: Recipe, created: Recipe): void {
-    this.store.dispatch(RecipeActions.replace({ old, created }));
+    this.store.dispatch(RecipeActions.replaceRecipe({ old, created }));
   }
 
   remove(recipe: Recipe): void {
-    this.store.dispatch(RecipeActions.remove({ recipe }));
+    this.store.dispatch(RecipeActions.removeRecipe({ recipe }));
   }
 }

@@ -9,6 +9,9 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/recipes">Recipes</a>
       </li>
+      <li *ngIf="authService.isAuthenticated" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/shopping-list">Shopping list</a>
+      </li>
     </ul>
     <met-data-storage></met-data-storage>
     <met-authorization></met-authorization>

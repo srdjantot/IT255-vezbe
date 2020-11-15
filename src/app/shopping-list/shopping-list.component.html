@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-10 offset-1">
+        <met-shopping-list-edit></met-shopping-list-edit>
+        <hr>
+        <ul class="list-group">
+            <met-shopping-list-display [ingredient]="ingredient"
+                *ngFor="let ingredient of shoppingListService.ingredients">
+                <span class="name"> {{ingredient.name}} </span> {{ingredient.amount}}
+            </met-shopping-list-display>
+        </ul>
+    </div>
+</div>

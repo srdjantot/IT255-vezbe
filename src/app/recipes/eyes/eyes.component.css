@@ -4,7 +4,8 @@
     border-radius: 50%;
     height: 30px;
     width: 30px;
-    background: #CCC;
+    background-color: #CCC;
+    transition: background-color 0.5s ease;
 }
 
 .eye:after {
@@ -13,7 +14,7 @@
     right: 10px;
     width: 10px;
     height: 10px;
-    background: #000;
+    background-color: #000;
     border-radius: 50%;
     content: " ";
 }

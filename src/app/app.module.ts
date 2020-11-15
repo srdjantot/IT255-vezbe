@@ -19,7 +19,10 @@ import { RecipeItemTemplateComponent } from './recipes/recipe-item-template/reci
 import { RecipeItemComponent } from './recipes/recipe-item/recipe-item.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipesComponent } from './recipes/recipes.component';
-
+import { ShoppingListDisplayComponent } from './shopping-list/shopping-list-display/shopping-list-display.component';
+import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { BackgroundColorRandomizerDirective } from './directives/background-color-randomizer.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,11 @@ import { RecipesComponent } from './recipes/recipes.component';
     LoginComponent,
     RegisterComponent,
     AdviceComponent,
-    EyesComponent
+    EyesComponent,
+    ShoppingListComponent,
+    ShoppingListEditComponent,
+    ShoppingListDisplayComponent,
+    BackgroundColorRandomizerDirective
   ],
   imports: [
     BrowserModule,

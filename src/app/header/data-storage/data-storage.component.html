@@ -1,3 +1,12 @@
-<span *ngIf="inProgress">{{status}}</span>
-<button class="btn btn-outline-primary ml-1" (click)="loadRecipes()" [disabled]="inProgress">Load</button>
-<button *ngIf="authService.isAuthenticated" class="btn btn-outline-primary ml-1" (click)="saveRecipes()" [disabled]="inProgress">Save</button>
+<div class="dropdown">
+    <span *ngIf="inProgress">{{status}}</span>
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Data storage
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+        <button class="dropdown-item" type="button" (click)="loadRecipes()" [disabled]="inProgress">Load</button>
+        <button *ngIf="authService.isAuthenticated" class="dropdown-item" type="button" (click)="saveRecipes()"
+            [disabled]="inProgress">Save</button>
+    </div>
+</div>

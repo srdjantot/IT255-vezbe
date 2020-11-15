@@ -65,14 +65,12 @@
                     </div>
                 </div>
             </div>
-            <div class="float-right">
+            <div class="d-flex">
+                <button type="button" class="btn btn-success mr-auto" (click)="onNewIngredient($event)">Add ingredient</button>
                 <button type="submit" class="btn btn-primary mx-1" [disabled]="editForm.invalid">Save</button>
                 <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
                 <button *ngIf="recipe" type="button" class="btn btn-outline-danger ml-3"
                     (click)="onDelete()">Delete</button>
-            </div>
-            <div class="float-left">
-                <button type="button" class="btn btn-success" (click)="onNewIngredient($event)">Add ingredient</button>
             </div>
         </form>
     </div>

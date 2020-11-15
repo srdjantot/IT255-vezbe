@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { APP_TITLE } from '../app.config';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'met-header',
@@ -7,7 +8,7 @@ import { APP_TITLE } from '../app.config';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(@Inject(APP_TITLE) private appTitle: string) { }
+  constructor(public authService: AuthService, @Inject(APP_TITLE) private appTitle: string) { }
 
   get title(): string {
     return this.appTitle;
