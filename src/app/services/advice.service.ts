@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { interval, Observable, timer } from 'rxjs';
-import { concatAll, map, share, startWith, switchMap, tap } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { map, share, startWith, switchMap, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
